@@ -1,0 +1,98 @@
+/* styles.css */
+body {
+    background-color:  #102c54;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    color: aliceblue;
+    margin-top: 120px; /* Agrega un margen superior de 20 píxeles (ajusta el valor según tus necesidades) */
+}
+
+h2{
+    margin-top: 2px;/* Margen superior */
+    margin-bottom: 2px; /* Margen inferior */
+    margin-right: 140px; /* Ajusta el valor según tus necesidades */
+}
+h3{
+    margin-top: 19px;/* Margen superior */
+    margin-right: 230px; /* Ajusta el valor según tus necesidades */
+}
+input[type="submit"]{
+    margin-top: 10px;/* Margen superior */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px; 
+    height: 30px;
+    border: 3px solid #000; /* Ancho, estilo y color del borde */
+    font-size: 20px; /* Tamaño de fuente en píxeles */
+    font-weight: bold; /* Hace que el texto se muestre en negrita */
+}
+input[type="email"], input[type="password"]{
+    width: 390px; 
+    height: 25px;
+    border: 3px solid #000; /* Ancho, estilo y color del borde */
+}
+.background-square {
+    position: fixed;
+    top: 50%; /* Posición vertical en el 50% de la ventana */
+    left: 50%; /* Posición horizontal en el 50% de la ventana */
+    transform: translate(-50%, -50%); /* Centra el cuadrado */
+    width: 600px; /* Ancho del cuadrado */
+    height: 350px; /* Alto del cuadrado */
+    background-color: RGB(87, 35, 100); /* Color de fondo (en este caso, azul) */
+    z-index: -1; /* Coloca el cuadrado detrás de todo el contenido */
+    border-radius: 30px; /* Todas las esquinas tendrán un radio de 10px */
+    border: 3px solid #000; /* Ancho, estilo y color del borde */
+}
+.rectangulo {
+    width: 100%; /* Ocupa todo el ancho de la página */
+    height: 20px; /* Altura muy pequeña */
+    top: 0; /* Fijar en la parte superior de la ventana */
+    position: fixed; /* Fijar la posición */
+    background-color: #ffffff; /* Color de fondo (puedes cambiarlo) */
+    border: 3px solid #000; /* Ancho, estilo y color del borde */
+    z-index: -1; /* Coloca el cuadrado detrás de todo el contenido */
+    color: rgb(0, 0, 0); /* Color del texto */
+    line-height: 20px; /* Igualar la altura de línea al alto del rectángulo */
+    font-weight: bold; /* Hace que el texto sea en negrita */
+}
+.registro-container {
+    display: flex;
+    align-items: center;
+}
+
+.registro-container a {
+    margin-left: -200px; /* Añade un margen izquierdo para separar el enlace del texto */
+    font-weight: bold; /* Hace que el texto sea en negrita */
+    font-family: 'Space Mono', monospace;
+    color: #166adf;
+}
+
+/* Estilos para mensajes Flash */
+.flash-messages {
+    position: fixed; /* Fija la posición */
+    top: 0; /* Coloca los mensajes en la parte superior */
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho de la página */
+    list-style: none;
+    padding: 10px;
+    margin: 0; /* Sin margen para evitar afectar otros elementos */
+    z-index: 9999; /* Asegura que los mensajes estén en la parte superior */
+}
+
+.flash-messages li {
+    padding: 5px;
+    margin: 10px 0;
+}
+
+.success {
+    color: #008000; /* Color verde para mensajes de éxito */
+}
+
+.error {
+    color: #ff0000; /* Color rojo para mensajes de error */
+}

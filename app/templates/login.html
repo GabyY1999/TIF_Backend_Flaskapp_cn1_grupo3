@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="rectangulo">Team Hub</div>
+    <!-- Mostrar mensajes Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <script>
+                            alert("{{ message }}");
+                        </script>                        
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    <div class="background-square"></div>
+    <h1>Iniciar Sesión</h1>
+
+    <!-- Agrega un formulario con method="POST" y action="/login" -->
+    <form method="POST" action="/login">
+        <h2>Correo Electrónico</h2>
+        <input type="email" id="correo" name="correo" required>
+        
+        <h2>Contraseña</h2>
+        <input type="password" id="contrasena" name="contrasena" required>
+            
+        <!-- Cambia el tipo de input a "submit" para enviar el formulario -->
+        <input type="submit" value="Confirmar">
+    </form>
+    <div class="registro-container">
+        <h3>¿No tiene cuenta?</h3>
+        <a href="/register">Registrarse</a>
+    </div>
+</body>
+</html>
+

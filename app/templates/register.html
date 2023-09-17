@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+    <title>Registro de Usuario</title>
+    <!-- Agrega tus estilos CSS o enlaces a bibliotecas de estilos aquí -->
+</head>
+<body>
+    <!-- Mostrar mensajes Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    <div class="rectangulo">Team Hub</div>
+    <div class="background-square"></div>
+    <h1>Crea una cuenta</h1>
+    <form method="POST" action="/register">
+        <h2>Nombre de usuario</h2>
+        <label for="username"></label>
+        <input type="text" name="username" required>
+
+        <h2>Nombre</h2>
+        <label for="name"></label>
+        <input type="text" name="name" required>
+        
+        <h2>Apellido</h2>
+        <label for="lastname"></label>
+        <input type="text" name="lastname">
+        
+        <h2>Contraseña</h2>
+        <label for="password"></label>
+        <input type="password" name="password" required>
+        
+        <h2>Correo electrónico</h2>
+        <label for="email"></label>
+        <input type="email" name="email" required>
+        
+        <h2>Fecha de nacimiento</h2>
+        <select name="dia" id="dia">
+            <option value="" disabled selected>Dia</option>
+        </select>
+        <select name="mes" id="mes">
+            <option value="" disabled selected>Mes</option>
+        </select>
+        <select name="anio" id="anio">
+            <option value="" disabled selected>Año</option>
+        </select>
+        
+        <input type="submit" value="Confirmar">
+    </form>
+    <script src="../static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="../static/css/welcome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="rectangulo">Team Hub</div>
+    {% if no_pertenece_a_servidor %}
+    <!-- Si el usuario no pertenece a ningún servidor, muestra solo dos columnas -->
+    <div class="column" id="servers-column">
+        <!-- Aquí mostrarás la lista de servidores si el usuario pertenece a alguno -->
+        {% if servidores %}
+        <ul>
+            {% for servidor in servidores %}
+                <li>{{ servidor.nombre }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
+        <!-- Botón para unirse a un nuevo servidor -->
+        <button class="create-button" onclick="unirseAServidor()"></button>
+    
+        <!-- Botón para crear un nuevo servidor -->
+        <button class="compass-button" onclick="crearNuevoServidor()"></button>
+    </div>
+    
+
+    <div class="column" id="messages-column">
+        <!-- Muestra las columnas de mensajes aquí (derecha) -->
+        <!-- Debes agregar la lógica para cargar los mensajes aquí si es necesario -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+    </div>
+    {% else %}
+    <!-- Si el usuario pertenece a al menos un servidor, muestra las tres columnas -->
+    <div class="column" id="servers-column">
+    <!-- Aquí mostrarás la lista de servidores si el usuario pertenece a alguno -->
+        {% if servidores %}
+        <ul>
+            {% for servidor in servidores %}
+                <li>{{ servidor.nombre }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+    <!-- Botón para unirse a un nuevo servidor -->
+        <button onclick="unirseAServidor()">Unirse a un nuevo servidor</button>
+    </div>
+
+    <div class="column" id="channels-column">
+        <!-- Aquí mostrarás la lista de canales del servidor seleccionado -->
+        <!-- También incluye un botón para crear un nuevo canal -->
+        <!-- Debes agregar la lógica para cargar la lista de canales aquí -->
+    </div>
+
+    <div class="column" id="messages-column">
+        {% if no_pertenece_a_servidor %}
+        <!-- Si el usuario no pertenece a ningún servidor, muestra el mensaje aquí -->
+        <p>Aún no te has unido a un servidor. Intenta buscar uno o crea uno propio.</p>
+        {% else %}
+        <!-- Si el usuario pertenece a al menos un servidor, muestra los mensajes aquí -->
+        <!-- Debes agregar la lógica para cargar los mensajes aquí si es necesario -->
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
