@@ -1,5 +1,5 @@
 from app import create_app
-from app.routes.BaseDatos import DatabaseConnection  # Importa la clase DatabaseConnection
+from app.BaseDatos import DatabaseConnection  # Importa la clase DatabaseConnection
 from configuracion import credenciales
 
 # Crea una instancia de la aplicación Flask
