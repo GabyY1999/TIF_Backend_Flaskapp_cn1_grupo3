@@ -1,7 +1,6 @@
 from flask import request, jsonify
 from ..models.servidores_model import Servidor
 from ..models.miembroservidor_model import MiembroServidor
-from ..models.canal_model import Canal
 
 class ServidoresController:
 
